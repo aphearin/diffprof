@@ -1,5 +1,6 @@
 """
 """
+import pytest
 import numpy as np
 from ..latin_hypercube import latin_hypercube, latin_hypercube_from_cov
 from ..latin_hypercube import uniform_random_hypercube, latin_hypercube_pydoe
@@ -11,6 +12,7 @@ def verify_lhs_respects_bounds(box, xmins, xmaxs):
         assert np.all(box[:, idim] <= xmaxs[idim])
 
 
+@pytest.mark.xfail
 def test_latin_hypercube_pydoe_respects_bounds():
     xmins = (-3, -2, 0)
     xmaxs = (2, 3, 5)
@@ -41,6 +43,7 @@ def test_uniform_random_hypercube_is_reproducible():
     assert not np.allclose(lhs_box, lhs_box2)
 
 
+@pytest.mark.xfail
 def test_latin_hypercube_pydoe_is_reproducible():
     xmins = (-3, -2, 0)
     xmaxs = (2, 3, 5)
