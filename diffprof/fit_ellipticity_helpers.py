@@ -6,7 +6,7 @@ from jax import jit as jjit
 from jax import vmap as jvmap
 from jax import grad, value_and_grad
 from scipy.optimize import curve_fit
-from jax.experimental import optimizers as jax_opt
+from jax.example_libraries import optimizers as jax_opt
 from .ellipticity_evolution import u_ellipticity_vs_time, DEFAULT_PARAMS
 from .ellipticity_evolution import get_unbounded_params, get_bounded_params
 
